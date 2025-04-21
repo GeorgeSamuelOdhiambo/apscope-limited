@@ -314,7 +314,7 @@ const ContactForm = () => {
         </Grid>
 
         {/* Contact Form Section */}
-        <Box sx={{ maxWidth: 800, mx: "auto" }}>
+        <Box id="send-sms" sx={{ maxWidth: 800, mx: "auto" }}>
           <Paper
             elevation={2}
             sx={{

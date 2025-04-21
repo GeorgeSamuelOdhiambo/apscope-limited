@@ -9,7 +9,6 @@ import {
   Link,
   IconButton,
   useTheme,
-  useMediaQuery
 } from '@mui/material';
 import {
   Facebook,
@@ -24,7 +23,6 @@ import logo from '../assets/images/logo.png';
 
 const Footer = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
@@ -37,15 +35,14 @@ const Footer = () => {
   const quickLinks = [
     { text: "Home", to: "home" },
     { text: "Company Profile", to: "profile" },
-    { text: "Our Services", to: "services" },
-    { text: "Directors", to: "directors" }
+    { text: "Our Services", to: "services" }
   ];
 
   const servicesLinks = [
     { text: "Health Products", url: "#" },
-    { text: "IT Solutions", url: "#" },
-    { text: "Consultancy", url: "#" },
-    { text: "Construction", url: "#" }
+    { text: "Solar Energy", url: "#" },
+    { text: "HR & Talent", url: "#" },
+    { text: "Accounting Solutions", url: "#" }
   ];
 
   const companyLinks = [

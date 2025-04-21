@@ -16,6 +16,8 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import logo from "../assets/images/logo.png";
+import { useLocation, useNavigate } from "react-router-dom";
+import { scroller } from "react-scroll";
 
 const StyledAppBar = styled(AppBar)(({ theme, scrolled }) => ({
   backgroundColor: scrolled
@@ -70,6 +72,20 @@ const MobileMenuItem = styled(MenuItem)(({ theme }) => ({
 const Header = () => {
   const [mobileMenuAnchor, setMobileMenuAnchor] = useState(null);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (sectionId) => {
+    if (location.pathname === "/") {
+      scroller.scrollTo(sectionId, {
+        duration: 500,
+        smooth: true,
+        offset: -80,
+      });
+    } else {
+      navigate(`/#${sectionId}`);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,7 +100,6 @@ const Header = () => {
     { name: "About Us", to: "profile" },
     { name: "Values", to: "values" },
     { name: "Our Sectors", to: "services" },
-    // { name: "Directors", to: "directors" },
     { name: "Contact Us", to: "contact" },
   ];
 
@@ -129,6 +144,7 @@ const Header = () => {
               <Fade in key={link.to} timeout={index * 200 + 500}>
                 <div>
                   <NavLink
+                    onClick={() => handleNavClick(link.to)}
                     to={link.to}
                     smooth={true}
                     duration={500}
@@ -143,6 +159,31 @@ const Header = () => {
               </Fade>
             ))}
           </Box>
+
+          {/* <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
+            {navLinks.map((link, index) => (
+              <Fade in key={link.to} timeout={index * 200 + 500}>
+                <Box
+                  onClick={() => handleNavClick(link.to)}
+                  sx={{
+                    cursor: "pointer",
+                    padding: 1,
+                    color: scrolled ? "primary.dark" : "white",
+                    fontWeight: 500,
+                    borderRadius: 1,
+                    "&:hover": {
+                      color: "primary.main",
+                      backgroundColor: scrolled
+                        ? "primary.light"
+                        : "rgba(255,255,255,0.1)",
+                    },
+                  }}
+                >
+                  {link.name}
+                </Box>
+              </Fade>
+            ))}
+          </Box> */}
 
           {/* Mobile Menu Button */}
           <IconButton

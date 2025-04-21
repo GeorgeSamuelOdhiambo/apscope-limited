@@ -19,7 +19,7 @@ const heroData = [
     title: "APScope Limited",
     subtitle: "A composite of infrastructure, healthcare, and professionals",
     description:
-      "Health • Construction • I.T. • Human Capital • Project Consultancy",
+      "Health • Construction • Accounting Solutions • Human Capital • Project Consultancy",
     image: back1,
     overlay: "rgba(0, 0, 0, 0.5)",
     buttonColor: "#1976d2",

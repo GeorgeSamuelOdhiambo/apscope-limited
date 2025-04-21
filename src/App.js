@@ -30,22 +30,39 @@
 
 // export default App;
 
-
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import CompanyProfile from './components/CompanyProfile';
-import Values from './components/Values';
-import Services from './components/Services';
-import ServiceDetail from './components/ServiceDetail';
-import Directors from './components/Directors';
-import AddressSection from './components/AddressSection';
-import ContactForm from './components/ContactForm';
-import Footer from './components/Footer';
-import './App.css';
+import React, { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import Header from "./components/Header";
+import HeroSection from "./components/HeroSection";
+import CompanyProfile from "./components/CompanyProfile";
+import Values from "./components/Values";
+import Services from "./components/Services";
+import ServiceDetail from "./components/ServiceDetail";
+import Directors from "./components/Directors";
+import AddressSection from "./components/AddressSection";
+import ContactForm from "./components/ContactForm";
+import Footer from "./components/Footer";
+import "./App.css";
+import { scroller } from "react-scroll";
 
 function Home() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const section = location.hash.replace("#", "");
+    if (section) {
+      scroller.scrollTo(section, {
+        duration: 500,
+        smooth: true,
+        offset: -80,
+      });
+    }
+  }, [location]);
   return (
     <>
       <HeroSection />
