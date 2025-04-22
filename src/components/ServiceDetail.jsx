@@ -1071,7 +1071,7 @@ const ServiceDetail = () => {
                       {service.description}
                     </Typography>
                     <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                      {[1, 2, 3].map((item) => (
+                      {[1].map((item) => (
                         <Chip
                           key={item}
                           icon={<Verified sx={{ color: service.color }} />}

@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Container,
   Typography,
-  Divider,
   Grid,
   Card,
   CardContent,
@@ -11,9 +10,7 @@ import {
   useTheme,
   useMediaQuery,
   Avatar,
-  IconButton,
   styled,
-  Paper,
 } from "@mui/material";
 import {
   MedicalServices,
@@ -24,6 +21,8 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import back1 from "../assets/images/solar-energy-large.jpg";
+
 
 // Styled components
 const ClassicCard = styled(Card)(({ theme }) => ({
@@ -65,7 +64,7 @@ const services = [
     icon: <SolarPower fontSize="large" />,
     shortDesc: "Reliable, Clean, and Affordable Solar Energy Solutions",
     color: "#FF9800",
-    image: "/images/solar-energy.jpg",
+    image: back1,
   },
   {
     id: "health-pharma",
@@ -73,7 +72,7 @@ const services = [
     icon: <MedicalServices fontSize="large" />,
     shortDesc: "Comprehensive medical solutions and healthcare services",
     color: "#2196F3",
-    image: "/images/health-pharma.jpg",
+    image: back1,
   },
   {
     id: "hr-talent",
@@ -81,7 +80,7 @@ const services = [
     icon: <Groups fontSize="large" />,
     shortDesc: "Strategic human resource solutions and talent acquisition",
     color: "#9C27B0",
-    image: "/images/hr-talent.jpg",
+    image: back1,
   },
   {
     id: "accounting-software",

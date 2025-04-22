@@ -23,8 +23,6 @@ import {
   Send as SendIcon,
   LocationOn as LocationIcon,
   Phone as PhoneIcon,
-  Language as WebsiteIcon,
-  ArrowRightAlt as ArrowIcon,
   Mail as MailIcon,
 } from "@mui/icons-material";
 import { keyframes } from "@emotion/react";
@@ -119,7 +117,7 @@ const ContactForm = () => {
       id="contact"
       sx={{
         backgroundColor: "background.default",
-        py: { xs: 6, md: 10 },
+        py: { xs: 6, md: 2 },
         position: "relative",
         overflow: "hidden",
         "&:before": {
@@ -169,33 +167,74 @@ const ContactForm = () => {
             channels or send us a message directly.
           </Typography>
         </Box>
-
-        {/* Contact Information Grid sx={{justifyContent: "center"}} */}
+        
+        {/* Elegant Contact Information Grid */}
         <Grid container spacing={4} sx={{ mb: 10, justifyContent: "center" }}>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={6}>
             <Slide direction="up" in timeout={500}>
-              <ContactCard>
-                <CardContent sx={{ p: 4, height: "100%" }}>
+              <ContactCard
+                sx={{
+                  border: "none",
+                  borderRadius: 0,
+                  boxShadow: "none",
+                  background: "linear-gradient(to bottom, #f9f9f9, #ffffff)",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-4px)",
+                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.1)",
+                  },
+                }}
+              >
+                <CardContent sx={{ p: 5, height: "100%" }}>
                   <Stack spacing={3} alignItems="flex-start">
-                    <Avatar
-                      className="card-icon"
+                    <Box
                       sx={{
-                        bgcolor: "primary.light",
-                        color: "primary.main",
-                        width: 56,
-                        height: 56,
-                        mb: 1,
+                        width: 64,
+                        height: 64,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        bgcolor: "transparent",
+                        border: "2px solid",
+                        borderColor: "primary.main",
+                        borderRadius: "50%",
+                        mb: 2,
                       }}
                     >
-                      <LocationIcon fontSize="medium" />
-                    </Avatar>
-                    <Typography variant="h6" fontWeight={600}>
+                      <LocationIcon
+                        fontSize="medium"
+                        sx={{ color: "primary.main" }}
+                      />
+                    </Box>
+                    <Typography
+                      variant="h6"
+                      fontWeight={500}
+                      fontFamily="'Georgia', serif"
+                      sx={{
+                        color: "text.primary",
+                        letterSpacing: "0.05em",
+                        position: "relative",
+                        "&:after": {
+                          content: '""',
+                          display: "block",
+                          width: "40px",
+                          height: "2px",
+                          bgcolor: "primary.main",
+                          mt: 1,
+                        },
+                      }}
+                    >
                       Our Location
                     </Typography>
                     <Typography
                       variant="body1"
                       color="text.secondary"
-                      sx={{ lineHeight: 1.8 }}
+                      sx={{
+                        lineHeight: 1.8,
+                        fontFamily: "'Lora', serif",
+                        letterSpacing: "0.02em",
+                        fontSize: "1.05rem",
+                      }}
                     >
                       Karen Plains Arcade, Level 2<br />
                       Karen Plains Road
@@ -210,102 +249,141 @@ const ContactForm = () => {
             </Slide>
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={6}>
             <Slide direction="up" in timeout={700}>
-              <ContactCard>
-                <CardContent sx={{ p: 4, height: "100%" }}>
+              <ContactCard
+                sx={{
+                  border: "none",
+                  borderRadius: 0,
+                  boxShadow: "none",
+                  background: "linear-gradient(to bottom, #f9f9f9, #ffffff)",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-4px)",
+                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.1)",
+                  },
+                }}
+              >
+                <CardContent sx={{ p: 5, height: "100%" }}>
                   <Stack spacing={3} alignItems="flex-start">
-                    <Avatar
-                      className="card-icon"
+                    <Box
                       sx={{
-                        bgcolor: "primary.light",
-                        color: "primary.main",
-                        width: 56,
-                        height: 56,
-                        mb: 1,
+                        width: 64,
+                        height: 64,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        bgcolor: "transparent",
+                        border: "2px solid",
+                        borderColor: "primary.main",
+                        borderRadius: "50%",
+                        mb: 2,
                       }}
                     >
-                      <PhoneIcon fontSize="medium" />
-                    </Avatar>
-                    <Typography variant="h6" fontWeight={600}>
+                      <PhoneIcon
+                        fontSize="medium"
+                        sx={{ color: "primary.main" }}
+                      />
+                    </Box>
+                    <Typography
+                      variant="h6"
+                      fontWeight={500}
+                      fontFamily="'Georgia', serif"
+                      sx={{
+                        color: "text.primary",
+                        letterSpacing: "0.05em",
+                        position: "relative",
+                        "&:after": {
+                          content: '""',
+                          display: "block",
+                          width: "40px",
+                          height: "2px",
+                          bgcolor: "primary.main",
+                          mt: 1,
+                        },
+                      }}
+                    >
                       Contact Details
                     </Typography>
                     <Box>
                       <Typography
                         variant="body1"
                         color="text.secondary"
-                        sx={{ lineHeight: 2.2 }}
+                        sx={{
+                          lineHeight: 2.2,
+                          fontFamily: "'Lora', serif",
+                          letterSpacing: "0.02em",
+                          fontSize: "1.05rem",
+                        }}
                       >
                         <Link
                           href="tel:+254202323622"
                           color="inherit"
-                          underline="hover"
-                          sx={{ display: "block" }}
+                          underline="none"
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 1.5,
+                            transition: "color 0.3s ease",
+                            "&:hover": {
+                              color: "primary.main",
+                            },
+                            "&:before": {
+                              content: '"\\2022"',
+                              color: "primary.main",
+                              fontSize: "1.5rem",
+                              lineHeight: 0,
+                            },
+                          }}
                         >
                           +254 (0)202 323622
                         </Link>
                         <Link
                           href="tel:+254730988100"
                           color="inherit"
-                          underline="hover"
-                          sx={{ display: "block" }}
+                          underline="none"
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 1.5,
+                            transition: "color 0.3s ease",
+                            "&:hover": {
+                              color: "primary.main",
+                            },
+                            "&:before": {
+                              content: '"\\2022"',
+                              color: "primary.main",
+                              fontSize: "1.5rem",
+                              lineHeight: 0,
+                            },
+                          }}
                         >
                           +254 (0)730 988100
                         </Link>
                         <Link
                           href="mailto:info@apscopelimited.com"
                           color="inherit"
-                          underline="hover"
-                          sx={{ display: "block" }}
+                          underline="none"
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 1.5,
+                            transition: "color 0.3s ease",
+                            "&:hover": {
+                              color: "primary.main",
+                            },
+                            "&:before": {
+                              content: '"\\2022"',
+                              color: "primary.main",
+                              fontSize: "1.5rem",
+                              lineHeight: 0,
+                            },
+                          }}
                         >
                           info@apscopelimited.com
                         </Link>
                       </Typography>
                     </Box>
-                  </Stack>
-                </CardContent>
-              </ContactCard>
-            </Slide>
-          </Grid>
-
-          <Grid item xs={12} md={4} >
-            <Slide direction="up" in timeout={900}>
-              <ContactCard>
-                <CardContent sx={{ p: 4, height: "100%" }}>
-                  <Stack spacing={3} alignItems="flex-start">
-                    <Avatar
-                      className="card-icon"
-                      sx={{
-                        bgcolor: "primary.light",
-                        color: "primary.main",
-                        width: 56,
-                        height: 56,
-                        mb: 1,
-                      }}
-                    >
-                      <WebsiteIcon fontSize="medium" />
-                    </Avatar>
-                    <Typography variant="h6" fontWeight={600}>
-                      Online
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="text.secondary"
-                      sx={{ lineHeight: 1.8 }}
-                    >
-                      Visit our website to learn more about our services and
-                      offerings.
-                    </Typography>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      href="https://www.apscopelimited.com"
-                      target="_blank"
-                      endIcon={<ArrowIcon />}
-                      sx={{ mt: 2 }}
-                    >
-                      Visit Website
-                    </Button>
                   </Stack>
                 </CardContent>
               </ContactCard>

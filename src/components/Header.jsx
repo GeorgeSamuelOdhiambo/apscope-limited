@@ -221,6 +221,7 @@ const Header = () => {
             {navLinks.map((link) => (
               <MobileMenuItem key={link.to} onClick={handleCloseMobileMenu}>
                 <NavLink
+                  onClick={handleCloseMobileMenu}
                   to={link.to}
                   smooth={true}
                   duration={500}
