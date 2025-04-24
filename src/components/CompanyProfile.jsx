@@ -448,11 +448,55 @@ const VisionObjectives = () => {
             elevation={3}
             sx={{
               p: 6,
-              background: `linear-gradient(135deg, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+              background: ` linear-gradient(110deg,rgb(139, 68, 214) 0%, #8a2be2 45%,rgb(230, 76, 129) 100%),
+              radial-gradient(circle at 20% 80%, 
+              rgba(255,255,255,0.3) 0%, transparent 40%)`,
               color: theme.palette.primary.contrastText,
-              borderRadius: theme.shape.borderRadius,
+              borderRadius: theme.shape.borderRadius * 2,
               position: "relative",
               overflow: "hidden",
+              transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+              transform: "translateY(0)",
+              boxShadow: `${theme.shadows[4]}, inset 0 1px 1px rgba(255,255,255,0.2)`,
+              "&:hover": {
+                transform: "translateY(-4px)",
+                boxShadow: `${theme.shadows[8]}, inset 0 1px 1px rgba(255,255,255,0.3)`,
+                "&::after": {
+                  opacity: 0.15,
+                },
+              },
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                top: "-50%",
+                left: "-50%",
+                right: "-50%",
+                bottom: "-50%",
+                background: `linear-gradient(to bottom right,rgba(255,255,255,0) 45%,rgba(255,255,255,0.1) 50%,rgba(255,255,255,0) 55%)`,
+                transform: "rotate(15deg)",
+                animation: "shimmer 8s infinite linear",
+                pointerEvents: "none",
+              },
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: `radial-gradient(circle at center, ${theme.palette.primary.light} 0%, transparent 70%)`,
+                opacity: 0.1,
+                transition: "opacity 0.4s ease",
+                pointerEvents: "none",
+              },
+              "@keyframes shimmer": {
+                "0%": {
+                  transform: "translateX(-100%) rotate(15deg)",
+                },
+                "100%": {
+                  transform: "translateX(100%) rotate(15deg)",
+                },
+              },
             }}
           >
             <Typography
@@ -495,7 +539,7 @@ const VisionObjectives = () => {
             </Grid>
             <Box sx={{ textAlign: "center", mt: 6 }}>
               <Button
-                onClick={() => navigate(`/#send-sms`)} 
+                onClick={() => navigate(`/#send-sms`)}
                 variant="contained"
                 color="secondary"
                 size="large"
