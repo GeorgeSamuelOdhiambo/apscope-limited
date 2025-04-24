@@ -9,7 +9,6 @@ import {
   Grid,
   useTheme,
   useMediaQuery,
-  Slide,
   Grow,
   Avatar,
   Stack,
@@ -39,6 +38,24 @@ const fadeIn = keyframes`
   to { opacity: 1; transform: translateY(0); }
 `;
 
+const pulseAnimation = keyframes`
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+`;
+
+const borderGlow = keyframes`
+  0% { box-shadow: 0 0 0 0 rgba(25, 118, 210, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(25, 118, 210, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(25, 118, 210, 0); }
+`;
+
+const pulse = keyframes`
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+`;
+
 // Styled Components
 const SectionHeader = styled(Typography)(({ theme }) => ({
   fontFamily: '"Playfair Display", serif',
@@ -64,13 +81,32 @@ const ContactCard = styled(Card)(({ theme }) => ({
   boxShadow: theme.shadows[2],
   transition: "all 0.3s ease",
   backgroundColor: theme.palette.background.paper,
+  animation: `${fadeIn} 0.6s ease-out forwards`,
+  opacity: 0,
   "&:hover": {
     transform: "translateY(-5px)",
     boxShadow: theme.shadows[6],
+    "& .card-icon-container": {
+      animation: `${pulseAnimation} 1.5s ease infinite, ${borderGlow} 2s ease infinite`,
+    },
     "& .card-icon": {
       animation: `${floatAnimation} 2s ease-in-out infinite`,
     },
   },
+}));
+
+const IconContainer = styled(Box)(({ theme }) => ({
+  width: 64,
+  height: 64,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  bgcolor: "transparent",
+  border: "2px solid",
+  borderColor: "primary.main",
+  borderRadius: "50%",
+  mb: 2,
+  transition: "all 0.3s ease",
 }));
 
 const ContactForm = () => {
@@ -117,7 +153,7 @@ const ContactForm = () => {
       id="contact"
       sx={{
         backgroundColor: "background.default",
-        py: { xs: 6, md: 2 },
+        py: { xs: 6, mb: 5 },
         position: "relative",
         overflow: "hidden",
         "&:before": {
@@ -127,9 +163,9 @@ const ContactForm = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          background: `linear-gradient(135deg, ${theme.palette.primary.light} 0%, transparent 100%)`,
-          opacity: 0.05,
-          zIndex: 0,
+          backgroundColor: "#f9f9f9",
+          backgroundImage:
+            "linear-gradient(to top, #ffffff,rgb(192, 225, 238))",
         },
       }}
     >
@@ -138,13 +174,14 @@ const ContactForm = () => {
         <Box sx={{ textAlign: "center", mb: 8 }}>
           <Typography
             variant="overline"
+            component="span"
             sx={{
-              color: "primary.main",
+              color: "secondary.main",
               fontWeight: 600,
               letterSpacing: 2,
-              display: "block",
+              display: "inline-block",
               mb: 2,
-              fontSize: "0.8rem",
+              animation: `${pulse} 2s infinite`,
             }}
           >
             CONTACT US
@@ -167,227 +204,199 @@ const ContactForm = () => {
             channels or send us a message directly.
           </Typography>
         </Box>
-        
+
         {/* Elegant Contact Information Grid */}
         <Grid container spacing={4} sx={{ mb: 10, justifyContent: "center" }}>
           <Grid item xs={12} md={6}>
-            <Slide direction="up" in timeout={500}>
-              <ContactCard
-                sx={{
-                  border: "none",
-                  borderRadius: 0,
-                  boxShadow: "none",
-                  background: "linear-gradient(to bottom, #f9f9f9, #ffffff)",
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  "&:hover": {
-                    transform: "translateY(-4px)",
-                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.1)",
-                  },
-                }}
-              >
-                <CardContent sx={{ p: 5, height: "100%" }}>
-                  <Stack spacing={3} alignItems="flex-start">
-                    <Box
-                      sx={{
-                        width: 64,
-                        height: 64,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        bgcolor: "transparent",
-                        border: "2px solid",
-                        borderColor: "primary.main",
-                        borderRadius: "50%",
-                        mb: 2,
-                      }}
-                    >
-                      <LocationIcon
-                        fontSize="medium"
-                        sx={{ color: "primary.main" }}
-                      />
-                    </Box>
-                    <Typography
-                      variant="h6"
-                      fontWeight={500}
-                      fontFamily="'Georgia', serif"
-                      sx={{
-                        color: "text.primary",
-                        letterSpacing: "0.05em",
-                        position: "relative",
-                        "&:after": {
-                          content: '""',
-                          display: "block",
-                          width: "40px",
-                          height: "2px",
-                          bgcolor: "primary.main",
-                          mt: 1,
-                        },
-                      }}
-                    >
-                      Our Location
-                    </Typography>
+            <ContactCard
+              sx={{
+                border: "none",
+                borderRadius: 0,
+                boxShadow: "none",
+                background: "linear-gradient(to bottom, #f9f9f9, #ffffff)",
+                animationDelay: "0.2s",
+                "&:hover": {
+                  transform: "translateY(-4px)",
+                  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.1)",
+                },
+              }}
+            >
+              <CardContent sx={{ p: 5, height: "100%" }}>
+                <Stack spacing={3} alignItems="flex-start">
+                  <IconContainer className="card-icon-container">
+                    <LocationIcon
+                      className="card-icon"
+                      fontSize="medium"
+                      sx={{ color: "primary.main" }}
+                    />
+                  </IconContainer>
+                  <Typography
+                    variant="h6"
+                    fontWeight={500}
+                    fontFamily="'Georgia', serif"
+                    sx={{
+                      color: "text.primary",
+                      letterSpacing: "0.05em",
+                      position: "relative",
+                      "&:after": {
+                        content: '""',
+                        display: "block",
+                        width: "40px",
+                        height: "2px",
+                        bgcolor: "primary.main",
+                        mt: 1,
+                      },
+                    }}
+                  >
+                    Our Location
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    color="text.secondary"
+                    sx={{
+                      lineHeight: 1.8,
+                      fontFamily: "'Lora', serif",
+                      letterSpacing: "0.02em",
+                      fontSize: "1.05rem",
+                    }}
+                  >
+                    Karen Plains Arcade, Level 2<br />
+                    Karen Plains Road
+                    <br />
+                    P.O. Box 68254 - 00200
+                    <br />
+                    Nairobi, Kenya
+                  </Typography>
+                </Stack>
+              </CardContent>
+            </ContactCard>
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <ContactCard
+              sx={{
+                border: "none",
+                borderRadius: 0,
+                boxShadow: "none",
+                background: "linear-gradient(to bottom, #f9f9f9, #ffffff)",
+                animationDelay: "0.4s",
+                "&:hover": {
+                  transform: "translateY(-4px)",
+                  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.1)",
+                },
+              }}
+            >
+              <CardContent sx={{ p: 5, height: "100%" }}>
+                <Stack spacing={3} alignItems="flex-start">
+                  <IconContainer className="card-icon-container">
+                    <PhoneIcon
+                      className="card-icon"
+                      fontSize="medium"
+                      sx={{ color: "primary.main" }}
+                    />
+                  </IconContainer>
+                  <Typography
+                    variant="h6"
+                    fontWeight={500}
+                    fontFamily="'Georgia', serif"
+                    sx={{
+                      color: "text.primary",
+                      letterSpacing: "0.05em",
+                      position: "relative",
+                      "&:after": {
+                        content: '""',
+                        display: "block",
+                        width: "40px",
+                        height: "2px",
+                        bgcolor: "primary.main",
+                        mt: 1,
+                      },
+                    }}
+                  >
+                    Contact Details
+                  </Typography>
+                  <Box>
                     <Typography
                       variant="body1"
                       color="text.secondary"
                       sx={{
-                        lineHeight: 1.8,
+                        lineHeight: 2.2,
                         fontFamily: "'Lora', serif",
                         letterSpacing: "0.02em",
                         fontSize: "1.05rem",
                       }}
                     >
-                      Karen Plains Arcade, Level 2<br />
-                      Karen Plains Road
-                      <br />
-                      P.O. Box 68254 - 00200
-                      <br />
-                      Nairobi, Kenya
-                    </Typography>
-                  </Stack>
-                </CardContent>
-              </ContactCard>
-            </Slide>
-          </Grid>
-
-          <Grid item xs={12} md={6}>
-            <Slide direction="up" in timeout={700}>
-              <ContactCard
-                sx={{
-                  border: "none",
-                  borderRadius: 0,
-                  boxShadow: "none",
-                  background: "linear-gradient(to bottom, #f9f9f9, #ffffff)",
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  "&:hover": {
-                    transform: "translateY(-4px)",
-                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.1)",
-                  },
-                }}
-              >
-                <CardContent sx={{ p: 5, height: "100%" }}>
-                  <Stack spacing={3} alignItems="flex-start">
-                    <Box
-                      sx={{
-                        width: 64,
-                        height: 64,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        bgcolor: "transparent",
-                        border: "2px solid",
-                        borderColor: "primary.main",
-                        borderRadius: "50%",
-                        mb: 2,
-                      }}
-                    >
-                      <PhoneIcon
-                        fontSize="medium"
-                        sx={{ color: "primary.main" }}
-                      />
-                    </Box>
-                    <Typography
-                      variant="h6"
-                      fontWeight={500}
-                      fontFamily="'Georgia', serif"
-                      sx={{
-                        color: "text.primary",
-                        letterSpacing: "0.05em",
-                        position: "relative",
-                        "&:after": {
-                          content: '""',
-                          display: "block",
-                          width: "40px",
-                          height: "2px",
-                          bgcolor: "primary.main",
-                          mt: 1,
-                        },
-                      }}
-                    >
-                      Contact Details
-                    </Typography>
-                    <Box>
-                      <Typography
-                        variant="body1"
-                        color="text.secondary"
+                      <Link
+                        href="tel:+254202323622"
+                        color="inherit"
+                        underline="none"
                         sx={{
-                          lineHeight: 2.2,
-                          fontFamily: "'Lora', serif",
-                          letterSpacing: "0.02em",
-                          fontSize: "1.05rem",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 1.5,
+                          transition: "color 0.3s ease",
+                          "&:hover": {
+                            color: "primary.main",
+                          },
+                          "&:before": {
+                            content: '"\\2022"',
+                            color: "primary.main",
+                            fontSize: "1.5rem",
+                            lineHeight: 0,
+                          },
                         }}
                       >
-                        <Link
-                          href="tel:+254202323622"
-                          color="inherit"
-                          underline="none"
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 1.5,
-                            transition: "color 0.3s ease",
-                            "&:hover": {
-                              color: "primary.main",
-                            },
-                            "&:before": {
-                              content: '"\\2022"',
-                              color: "primary.main",
-                              fontSize: "1.5rem",
-                              lineHeight: 0,
-                            },
-                          }}
-                        >
-                          +254 (0)202 323622
-                        </Link>
-                        <Link
-                          href="tel:+254730988100"
-                          color="inherit"
-                          underline="none"
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 1.5,
-                            transition: "color 0.3s ease",
-                            "&:hover": {
-                              color: "primary.main",
-                            },
-                            "&:before": {
-                              content: '"\\2022"',
-                              color: "primary.main",
-                              fontSize: "1.5rem",
-                              lineHeight: 0,
-                            },
-                          }}
-                        >
-                          +254 (0)730 988100
-                        </Link>
-                        <Link
-                          href="mailto:info@apscopelimited.com"
-                          color="inherit"
-                          underline="none"
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 1.5,
-                            transition: "color 0.3s ease",
-                            "&:hover": {
-                              color: "primary.main",
-                            },
-                            "&:before": {
-                              content: '"\\2022"',
-                              color: "primary.main",
-                              fontSize: "1.5rem",
-                              lineHeight: 0,
-                            },
-                          }}
-                        >
-                          info@apscopelimited.com
-                        </Link>
-                      </Typography>
-                    </Box>
-                  </Stack>
-                </CardContent>
-              </ContactCard>
-            </Slide>
+                        +254 (0)202 323622
+                      </Link>
+                      <Link
+                        href="tel:+254730988100"
+                        color="inherit"
+                        underline="none"
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 1.5,
+                          transition: "color 0.3s ease",
+                          "&:hover": {
+                            color: "primary.main",
+                          },
+                          "&:before": {
+                            content: '"\\2022"',
+                            color: "primary.main",
+                            fontSize: "1.5rem",
+                            lineHeight: 0,
+                          },
+                        }}
+                      >
+                        +254 (0)730 988100
+                      </Link>
+                      <Link
+                        href="mailto:info@apscopelimited.com"
+                        color="inherit"
+                        underline="none"
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 1.5,
+                          transition: "color 0.3s ease",
+                          "&:hover": {
+                            color: "primary.main",
+                          },
+                          "&:before": {
+                            content: '"\\2022"',
+                            color: "primary.main",
+                            fontSize: "1.5rem",
+                            lineHeight: 0,
+                          },
+                        }}
+                      >
+                        info@apscopelimited.com
+                      </Link>
+                    </Typography>
+                  </Box>
+                </Stack>
+              </CardContent>
+            </ContactCard>
           </Grid>
         </Grid>
 

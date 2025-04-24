@@ -11,6 +11,9 @@ import {
   useMediaQuery,
   Avatar,
   styled,
+  Fade,
+  Slide,
+  Divider,
 } from "@mui/material";
 import {
   MedicalServices,
@@ -21,8 +24,24 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { keyframes } from "@mui/material/styles";
 import back1 from "../assets/images/solar-energy-large.jpg";
 
+const pulse = keyframes`
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+`;
+
+// Animated divider component
+const AnimatedDivider = styled(Divider)(({ theme }) => ({
+  height: 4,
+  transition: "all 0.5s ease",
+  "&:hover": {
+    width: "120px !important",
+    backgroundColor: theme.palette.primary.main,
+  },
+}));
 
 // Styled components
 const ClassicCard = styled(Card)(({ theme }) => ({
@@ -40,22 +59,6 @@ const ClassicCard = styled(Card)(({ theme }) => ({
   },
 }));
 
-const SectionHeader = styled(Typography)(({ theme }) => ({
-  fontFamily: "'Playfair Display', serif",
-  fontWeight: 700,
-  letterSpacing: "1px",
-  position: "relative",
-  display: "inline-block",
-  "&:after": {
-    content: '""',
-    position: "absolute",
-    width: "50%",
-    height: "3px",
-    bottom: "-10px",
-    left: "25%",
-    backgroundColor: theme.palette.primary.main,
-  },
-}));
 
 const services = [
   {
@@ -108,53 +111,94 @@ const Services = () => {
         pb: 10,
         pt: 5,
         backgroundColor: "#f9f9f9",
-        backgroundImage: "linear-gradient(to bottom, #ffffff, #f9f9f9)",
+        backgroundImage: "linear-gradient(to bottom, #ffffff,rgb(192, 225, 238))",
       }}
     >
       <Container maxWidth="lg">
         {/* Section Header */}
         <Box sx={{ textAlign: "center", mb: 8 }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Typography
-              variant="overline"
+          <Slide direction="down" in timeout={500}>
+            <Box>
+              <Typography
+                variant="overline"
+                component="span"
+                sx={{
+                  color: "secondary.main",
+                  fontWeight: 600,
+                  letterSpacing: 2,
+                  display: "inline-block",
+                  mb: 2,
+                  animation: `${pulse} 2s infinite`,
+                }}
+              >
+                OUR OFFERINGS
+              </Typography>
+              <Typography
+                variant={isMobile ? "h5" : "h4"}
+                component="h4"
+                sx={{
+                  fontWeight: 700,
+                  color: "text.primary",
+                  mb: 3,
+                }}
+              >
+                Professional Services
+              </Typography>
+              <AnimatedDivider
+                sx={{
+                  width: 80,
+                  backgroundColor: "secondary.main",
+                  mx: "auto",
+                }}
+              />
+            </Box>
+          </Slide>
+
+          {/* Introductory Statement */}
+          <Fade in timeout={800}>
+            <Box
               sx={{
-                color: "text.secondary",
-                fontWeight: 600,
-                letterSpacing: 2,
-                mb: 1,
-                display: "block",
-              }}
-            >
-              OUR OFFERINGS
-            </Typography>
-            <SectionHeader
-              variant={isMobile ? "h3" : "h2"}
-              component="h2"
-              sx={{
-                mb: 4,
-                color: "text.primary",
-              }}
-            >
-              Professional Services
-            </SectionHeader>
-            <Typography
-              variant="subtitle1"
-              sx={{
-                color: "text.secondary",
-                maxWidth: 700,
+                maxWidth: 800,
                 mx: "auto",
-                lineHeight: 1.8,
+                mt: 4,
                 fontStyle: "italic",
+                position: "relative",
+                "&:before, &:after": {
+                  content: '""',
+                  position: "absolute",
+                  width: 40,
+                  height: 2,
+                  backgroundColor: theme.palette.primary.light,
+                  top: "50%",
+                },
+                "&:before": {
+                  left: -60,
+                },
+                "&:after": {
+                  right: -60,
+                },
+                [theme.breakpoints.down("sm")]: {
+                  "&:before, &:after": {
+                    display: "none",
+                  },
+                },
               }}
             >
-              Discover our comprehensive range of professional services designed
-              to meet your business needs with excellence and precision
-            </Typography>
-          </motion.div>
+              <Typography
+                variant={isMobile ? "body1" : "h6"}
+                component="p"
+                sx={{
+                  textAlign: "center",
+                  lineHeight: 1.8,
+                  color: "text.primary",
+                }}
+              >
+                "Discover our comprehensive range of professional services
+                designed to meet your business needs with excellence and
+                precision"
+              </Typography>
+            </Box>
+          </Fade>
         </Box>
 
         {/* Services Grid */}
