@@ -151,7 +151,8 @@ const Values = () => {
     <Box
       id="values"
       sx={{
-        py: 10,
+        pt: 5,
+        pb: 10,
         position: "relative",
         overflow: "hidden",
         "&:before": {
@@ -173,7 +174,8 @@ const Values = () => {
           pointerEvents: "none",
         },
         backgroundColor: "#f9f9f9",
-        backgroundImage: "linear-gradient(to top, #ffffff,rgb(192, 225, 238))",
+        backgroundImage:
+          "linear-gradient(to bottom, #ffffff,rgb(192, 225, 238))",
       }}
     >
       <>

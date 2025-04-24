@@ -41,8 +41,8 @@ function Home() {
     >
       <HeroSection />
       <CompanyProfile />
-      <Values />
       <Services />
+      <Values />
       {/* <Directors /> */}
       {/* <AddressSection /> */}
       <ContactForm />

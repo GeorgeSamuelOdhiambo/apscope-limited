@@ -111,7 +111,7 @@ const Services = () => {
         pb: 10,
         pt: 5,
         backgroundColor: "#f9f9f9",
-        backgroundImage: "linear-gradient(to bottom, #ffffff,rgb(192, 225, 238))",
+        backgroundImage: "linear-gradient(to top, #ffffff,rgb(192, 225, 238))",
       }}
     >
       <Container maxWidth="lg">
