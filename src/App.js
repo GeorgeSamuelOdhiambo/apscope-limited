@@ -32,7 +32,13 @@ function Home() {
     }
   }, [location]);
   return (
-    <>
+    <div
+      sx={{
+        backgroundColor: "#f9f9f9",
+        backgroundImage:
+          "linear-gradient(to bottom, #ffffff,rgb(134, 166, 179))",
+      }}
+    >
       <HeroSection />
       <CompanyProfile />
       <Values />
@@ -40,7 +46,7 @@ function Home() {
       {/* <Directors /> */}
       {/* <AddressSection /> */}
       <ContactForm />
-    </>
+    </div>
   );
 }
 

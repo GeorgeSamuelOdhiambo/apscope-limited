@@ -160,31 +160,6 @@ const Header = () => {
             ))}
           </Box>
 
-          {/* <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
-            {navLinks.map((link, index) => (
-              <Fade in key={link.to} timeout={index * 200 + 500}>
-                <Box
-                  onClick={() => handleNavClick(link.to)}
-                  sx={{
-                    cursor: "pointer",
-                    padding: 1,
-                    color: scrolled ? "primary.dark" : "white",
-                    fontWeight: 500,
-                    borderRadius: 1,
-                    "&:hover": {
-                      color: "primary.main",
-                      backgroundColor: scrolled
-                        ? "primary.light"
-                        : "rgba(255,255,255,0.1)",
-                    },
-                  }}
-                >
-                  {link.name}
-                </Box>
-              </Fade>
-            ))}
-          </Box> */}
-
           {/* Mobile Menu Button */}
           <IconButton
             size="large"

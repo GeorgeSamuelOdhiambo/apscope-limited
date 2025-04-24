@@ -172,6 +172,8 @@ const Values = () => {
           height: "100%",
           pointerEvents: "none",
         },
+        backgroundColor: "#f9f9f9",
+        backgroundImage: "linear-gradient(to top, #ffffff,rgb(192, 225, 238))",
       }}
     >
       <>
@@ -194,8 +196,8 @@ const Values = () => {
                 VALUES
               </Typography>
               <AnimatedTitle
-                variant={isMobile ? "h3" : "h2"}
-                component="h2"
+                variant={isMobile ? "h5" : "h4"}
+                component="h4"
                 sx={{
                   fontWeight: 700,
                   color: "text.primary",
