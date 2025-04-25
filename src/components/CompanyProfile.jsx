@@ -173,7 +173,7 @@ const VisionObjectives = () => {
           "linear-gradient(to bottom, #ffffff,rgb(192, 225, 238))",
       }}
     >
-      <Container maxWidth="lg">
+      <Container id="profile" maxWidth="lg">
         {/* Section Header */}
         <Box sx={{ textAlign: "center", mb: 8 }}>
           <Slide direction="down" in timeout={500}>
@@ -194,12 +194,12 @@ const VisionObjectives = () => {
                 ABOUT APSCOPE LIMITED
               </Typography>
               <Typography
-                variant={isMobile ? "h4" : "h3"}
-                component="h2"
+                variant={isMobile ? "h5" : "h4"}
+                component="h4"
                 sx={{
                   fontWeight: 700,
                   color: "text.primary",
-                  mb: 2,
+                  mb: 3,
                   fontFamily: "'Playfair Display', serif",
                 }}
               >
