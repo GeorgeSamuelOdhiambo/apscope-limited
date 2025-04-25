@@ -18,35 +18,78 @@ import {
   Button,
 } from "@mui/material";
 import { styled, keyframes } from "@mui/material/styles";
-import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
-import TargetIcon from "@mui/icons-material/Handshake";
-import PartnershipIcon from "@mui/icons-material/Handshake";
-import StarIcon from "@mui/icons-material/Star";
-import GrowIcon from "@mui/icons-material/TrendingUp";
-import GlobalIcon from "@mui/icons-material/Public";
+import {
+  EmojiObjects as InnovationIcon,
+  Public as GlobalIcon,
+  TrendingUp as GrowthIcon,
+  Stars as ExcellenceIcon,
+  Handshake as PartnershipIcon,
+  Groups as CollaborationIcon,
+  Business as BusinessIcon,
+  Checklist as ChecklistIcon,
+} from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-
-// Custom pulse animation
+import StarIcon from "@mui/icons-material/Star";
+// Custom animations
 const pulse = keyframes`
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
   100% { transform: scale(1); }
 `;
 
-// Custom float animation
-const float = keyframes`
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+const glow = keyframes`
+  0% { filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.1)); }
+  50% { filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3)); }
+  100% { filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.1)); }
 `;
 
-// Animated divider component
+// Styled components
 const AnimatedDivider = styled(Divider)(({ theme }) => ({
   height: 4,
+  width: 80,
+  margin: "16px auto",
+  backgroundColor: theme.palette.primary.main,
   transition: "all 0.5s ease",
   "&:hover": {
-    width: "120px !important",
-    backgroundColor: theme.palette.primary.main,
+    width: 120,
+    background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+  },
+}));
+
+const IconCard = styled(Paper)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  height: "100%",
+  padding: theme.spacing(3),
+  borderRadius: theme.shape.borderRadius * 2,
+  transition: "all 0.3s ease",
+  position: "relative",
+  overflow: "hidden",
+  "&:hover": {
+    transform: "translateY(-5px)",
+    boxShadow: theme.shadows[6],
+    "& .icon-wrapper": {
+      transform: "scale(1.1)",
+      "& svg": {
+        animation: `${glow} 2s infinite`,
+      },
+    },
+    "&:after": {
+      opacity: 0.1,
+    },
+  },
+  "&:after": {
+    content: '""',
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    background:
+      "radial-gradient(circle at center, currentColor 0%, transparent 70%)",
+    opacity: 0,
+    transition: "opacity 0.3s ease",
+    pointerEvents: "none",
   },
 }));
 
@@ -60,7 +103,6 @@ const companyInfo = {
   sectors: ["Health", "Construction", "Human Capital", "Project Consultancy"],
 };
 
-// Why Partner With Us
 const partnershipBenefits = [
   "Local expertise across East Africa",
   "Established government & private sector links",
@@ -76,61 +118,62 @@ const VisionObjectives = () => {
 
   const visionPillars = [
     {
-      icon: <GlobalIcon />,
+      icon: <GlobalIcon fontSize="large" />,
       title: "Global Recognition",
       content:
         "Establish as a premier company renowned worldwide for innovation and reliability.",
+      color: theme.palette.primary.main,
     },
     {
-      icon: <StarIcon />,
+      icon: <ExcellenceIcon fontSize="large" />,
       title: "Excellence Standard",
       content:
         "Pursue excellence across all dimensions of our business operations.",
+      color: theme.palette.secondary.main,
     },
     {
-      icon: <GrowIcon />,
+      icon: <GrowthIcon fontSize="large" />,
       title: "Talent Investment",
       content:
         "Foster continuous learning to build an unparalleled team of experts.",
+      color: theme.palette.success.main,
     },
   ];
 
   const objectives = [
     {
-      icon: <PartnershipIcon />,
+      icon: <PartnershipIcon fontSize="large" />,
       title: "Enduring Partnerships",
       content:
         "Build long-term relationships based on trust and mutual success.",
+      color: theme.palette.warning.main,
     },
     {
-      icon: <EmojiObjectsIcon />,
+      icon: <InnovationIcon fontSize="large" />,
       title: "Transformative Value",
       content:
         "Create measurable impact through innovative solutions and services.",
+      color: theme.palette.info.main,
     },
     {
-      icon: <TargetIcon />,
+      icon: <InnovationIcon fontSize="large" />,
       title: "Client-Centric Focus",
       content:
         "Maintain unwavering commitment to our clients' objectives and success.",
+      color: theme.palette.error.main,
     },
   ];
 
   return (
     <Box
       sx={{
+        pt: 5,
         backgroundColor: "#f9f9f9",
         backgroundImage:
           "linear-gradient(to bottom, #ffffff,rgb(192, 225, 238))",
       }}
     >
-      <Container
-        id="profile"
-        maxWidth="lg"
-        sx={{
-          mt: 5,
-        }}
-      >
+      <Container maxWidth="lg">
         {/* Section Header */}
         <Box sx={{ textAlign: "center", mb: 8 }}>
           <Slide direction="down" in timeout={500}>
@@ -142,50 +185,46 @@ const VisionObjectives = () => {
                   color: "secondary.main",
                   fontWeight: 600,
                   letterSpacing: 2,
-                  display: "inline-block",
+                  display: "block",
                   mb: 2,
+                  fontSize: "0.9rem",
                   animation: `${pulse} 2s infinite`,
                 }}
               >
                 ABOUT APSCOPE LIMITED
               </Typography>
               <Typography
-                variant={isMobile ? "h5" : "h4"}
-                component="h4"
+                variant={isMobile ? "h4" : "h3"}
+                component="h2"
                 sx={{
                   fontWeight: 700,
                   color: "text.primary",
-                  mb: 3,
+                  mb: 2,
+                  fontFamily: "'Playfair Display', serif",
                 }}
               >
                 Innovating Solutions, Connecting Possibilities
               </Typography>
-              <AnimatedDivider
-                sx={{
-                  width: 80,
-                  backgroundColor: "secondary.main",
-                  mx: "auto",
-                }}
-              />
+              <AnimatedDivider />
             </Box>
           </Slide>
 
           {/* Introductory Statement */}
           <Fade in timeout={800}>
-            <Box
-              sx={{
-                mt: 4,
-                p: 4,
-              }}
-            >
+            <Box sx={{ mt: 4 }}>
               <Typography
                 variant="h6"
                 component="p"
                 sx={{
                   textAlign: "center",
                   lineHeight: 1.8,
-                  color: "text.primary",
-                  mb: 2,
+                  color: "text.secondary",
+                  mb: 3,
+                  maxWidth: 800,
+                  mx: "auto",
+                  px: 2,
+                  fontFamily: "'Roboto', sans-serif",
+                  fontWeight: 300,
                 }}
               >
                 Since {companyInfo.founded}, we have delivered innovative and
@@ -198,7 +237,7 @@ const VisionObjectives = () => {
                 direction="row"
                 spacing={1}
                 justifyContent="center"
-                sx={{ mt: 2 }}
+                sx={{ mt: 3 }}
               >
                 {companyInfo.sectors.map((sector, index) => (
                   <Chip
@@ -206,39 +245,20 @@ const VisionObjectives = () => {
                     label={sector}
                     color="primary"
                     variant="outlined"
-                    sx={{ fontWeight: 600 }}
+                    sx={{
+                      fontWeight: 600,
+                      borderColor: theme.palette.primary.main,
+                      color: theme.palette.primary.main,
+                      "&:hover": {
+                        backgroundColor: theme.palette.primary.main,
+                        color: theme.palette.primary.contrastText,
+                      },
+                    }}
                   />
                 ))}
               </Stack>
 
-              <Box
-                sx={{
-                  maxWidth: 800,
-                  mx: "auto",
-                  mt: 4,
-                  fontStyle: "italic",
-                  position: "relative",
-                  "&:before, &:after": {
-                    content: '""',
-                    position: "absolute",
-                    width: 40,
-                    height: 2,
-                    backgroundColor: theme.palette.primary.light,
-                    top: "50%",
-                  },
-                  "&:before": {
-                    left: -60,
-                  },
-                  "&:after": {
-                    right: -60,
-                  },
-                  [theme.breakpoints.down("sm")]: {
-                    "&:before, &:after": {
-                      display: "none",
-                    },
-                  },
-                }}
-              >
+              <Box sx={{ mt: 5, position: "relative" }}>
                 <Typography
                   variant={isMobile ? "body1" : "h6"}
                   component="p"
@@ -246,6 +266,22 @@ const VisionObjectives = () => {
                     textAlign: "center",
                     lineHeight: 1.8,
                     color: "text.primary",
+                    fontStyle: "italic",
+                    maxWidth: 800,
+                    mx: "auto",
+                    px: 2,
+                    position: "relative",
+                    "&:before, &:after": {
+                      content: '""',
+                      position: "absolute",
+                      top: "50%",
+                      width: 40,
+                      height: 2,
+                      backgroundColor: theme.palette.primary.light,
+                      [theme.breakpoints.down("sm")]: { display: "none" },
+                    },
+                    "&:before": { left: -60 },
+                    "&:after": { right: -60 },
                   }}
                 >
                   "We are committed to building enduring partnerships and
@@ -258,26 +294,23 @@ const VisionObjectives = () => {
           </Fade>
         </Box>
 
-        {/* Vision Column */}
+        {/* Vision Section */}
         <Box sx={{ mb: 10 }}>
           <Slide direction="left" in timeout={600}>
-            <Box sx={{ textAlign: "center", mb: 1 }}>
+            <Box sx={{ textAlign: "center", mb: 6 }}>
               <Typography
-                variant="h5"
+                variant="h4"
                 component="h3"
                 sx={{
+                  fontWeight: 700,
+                  color: "text.primary",
                   display: "inline-flex",
                   alignItems: "center",
                   gap: 2,
-                  fontWeight: 800,
-                  color: "text.primary",
-                  "&:hover": {
-                    "& svg": {
-                      animation: `${float} 2s ease-in-out infinite`,
-                    },
-                  },
+                  fontFamily: "'Playfair Display', serif",
                 }}
               >
+                <BusinessIcon color="primary" sx={{ fontSize: 36 }} />
                 Our Vision
               </Typography>
             </Box>
@@ -291,86 +324,83 @@ const VisionObjectives = () => {
                   timeout={800 + index * 200}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  <Box sx={{ display: "flex", height: "100%" }}>
-                    <Paper
-                      elevation={0}
+                  <IconCard
+                    elevation={3}
+                    sx={{ borderTop: `4px solid ${item.color}` }}
+                  >
+                    <Box
+                      className="icon-wrapper"
                       sx={{
-                        p: 2,
-                        backgroundColor: "#f9f9f9",
-                        backgroundImage:
-                          "linear-gradient(to bottom, #ffffff,rgb(221, 237, 243))",
-                        borderRadius: theme.shape.borderRadius,
-                        borderRight: `3px solid ${theme.palette.primary.main}`,
-                        flexGrow: 1,
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          transform: "translateY(-5px)",
-                          boxShadow: theme.shadows[6],
-                          "& .MuiAvatar-root": {
-                            transform: "rotate(15deg)",
-                            transition: "transform 0.3s ease",
-                          },
-                        },
+                        mb: 3,
+                        display: "flex",
+                        justifyContent: "center",
+                        transition: "transform 0.3s ease",
                       }}
                     >
-                      <Box
+                      <Avatar
                         sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          mb: 3,
+                          width: 72,
+                          height: 72,
+                          bgcolor:
+                            theme.palette.mode === "dark"
+                              ? theme.palette.grey[800]
+                              : "rgba(255,255,255,0.9)",
+                          color: item.color,
+                          boxShadow: theme.shadows[2],
+                          "& svg": { fontSize: 36 },
                         }}
                       >
-                        <Avatar
-                          sx={{
-                            bgcolor: "primary.light",
-                            color: "primary.contrastText",
-                            mr: 2,
-                            width: 48,
-                            height: 48,
-                            transition: "transform 0.3s ease",
-                          }}
-                        >
-                          {item.icon}
-                        </Avatar>
-                        <Typography
-                          variant="h6"
-                          component="h5"
-                          sx={{ fontWeight: 600 }}
-                        >
-                          {item.title}
-                        </Typography>
-                      </Box>
-                      <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
-                        {item.content}
-                      </Typography>
-                    </Paper>
-                  </Box>
+                        {item.icon}
+                      </Avatar>
+                    </Box>
+                    <Typography
+                      variant="h5"
+                      component="h4"
+                      sx={{
+                        fontWeight: 600,
+                        mb: 2,
+                        color: item.color,
+                        textAlign: "center",
+                        fontFamily: "'Playfair Display', serif",
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        lineHeight: 1.7,
+                        color: "text.secondary",
+                        textAlign: "center",
+                        fontFamily: "'Roboto', sans-serif",
+                      }}
+                    >
+                      {item.content}
+                    </Typography>
+                  </IconCard>
                 </Grow>
               </Grid>
             ))}
           </Grid>
         </Box>
 
-        {/* Objectives Column */}
-        <Box>
+        {/* Objectives Section */}
+        <Box sx={{ mb: 10 }}>
           <Slide direction="right" in timeout={600}>
-            <Box sx={{ textAlign: "center", mb: 3 }}>
+            <Box sx={{ textAlign: "center", mb: 6 }}>
               <Typography
-                variant="h5"
+                variant="h4"
                 component="h3"
                 sx={{
+                  fontWeight: 700,
+                  color: "text.primary",
                   display: "inline-flex",
                   alignItems: "center",
                   gap: 2,
-                  fontWeight: 800,
-                  color: "text.primary",
-                  "&:hover": {
-                    "& svg": {
-                      animation: `${pulse} 1.5s ease-in-out infinite`,
-                    },
-                  },
+                  fontFamily: "'Playfair Display', serif",
                 }}
               >
+                <ChecklistIcon color="secondary" sx={{ fontSize: 36 }} />
                 Our Objectives
               </Typography>
             </Box>
@@ -384,58 +414,60 @@ const VisionObjectives = () => {
                   timeout={800 + index * 200}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  <Box sx={{ display: "flex", height: "100%" }}>
+                  <IconCard
+                    elevation={3}
+                    sx={{ borderBottom: `4px solid ${item.color}` }}
+                  >
                     <Box
+                      className="icon-wrapper"
                       sx={{
-                        p: 2,
-                        backgroundColor: "#f9f9f9",
-                        backgroundImage:
-                          "linear-gradient(to bottom, #ffffff,rgb(221, 237, 243))",
-                        borderRadius: theme.shape.borderRadius,
-                        borderLeft: `3px solid ${theme.palette.secondary.main}`,
-                        flexGrow: 1,
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          transform: "scale(1.03)",
-                          boxShadow: theme.shadows[4],
-                          borderLeftWidth: "5px",
-                          "& .MuiAvatar-root": {
-                            animation: `${pulse} 1s ease-in-out infinite`,
-                          },
-                        },
+                        mb: 3,
+                        display: "flex",
+                        justifyContent: "center",
+                        transition: "transform 0.3s ease",
                       }}
                     >
-                      <Box
+                      <Avatar
                         sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          mb: 3,
+                          width: 72,
+                          height: 72,
+                          bgcolor:
+                            theme.palette.mode === "dark"
+                              ? theme.palette.grey[800]
+                              : "rgba(255,255,255,0.9)",
+                          color: item.color,
+                          boxShadow: theme.shadows[2],
+                          "& svg": { fontSize: 36 },
                         }}
                       >
-                        <Avatar
-                          sx={{
-                            bgcolor: "secondary.light",
-                            color: "secondary.contrastText",
-                            mr: 2,
-                            width: 48,
-                            height: 48,
-                          }}
-                        >
-                          {item.icon}
-                        </Avatar>
-                        <Typography
-                          variant="h6"
-                          component="h5"
-                          sx={{ fontWeight: 600 }}
-                        >
-                          {item.title}
-                        </Typography>
-                      </Box>
-                      <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
-                        {item.content}
-                      </Typography>
+                        {item.icon}
+                      </Avatar>
                     </Box>
-                  </Box>
+                    <Typography
+                      variant="h5"
+                      component="h4"
+                      sx={{
+                        fontWeight: 600,
+                        mb: 2,
+                        color: item.color,
+                        textAlign: "center",
+                        fontFamily: "'Playfair Display', serif",
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        lineHeight: 1.7,
+                        color: "text.secondary",
+                        textAlign: "center",
+                        fontFamily: "'Roboto', sans-serif",
+                      }}
+                    >
+                      {item.content}
+                    </Typography>
+                  </IconCard>
                 </Zoom>
               </Grid>
             ))}
@@ -505,12 +537,19 @@ const VisionObjectives = () => {
               sx={{
                 textAlign: "center",
                 fontWeight: 700,
-                mb: 4,
+                mb: 6,
                 position: "relative",
-                zIndex: 1,
+                fontFamily: "'Playfair Display', serif",
                 animation: `${pulse} 2s infinite`,
               }}
             >
+              <CollaborationIcon
+                sx={{
+                  fontSize: 48,
+                  verticalAlign: "middle",
+                  mr: 2,
+                }}
+              />
               Why Partner With APSCOPE?
             </Typography>
             <Grid container spacing={4}>
