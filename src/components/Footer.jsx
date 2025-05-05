@@ -95,7 +95,7 @@ const Footer = () => {
               <Box
                 component="img"
                 src={logo}
-                alt="APScope Limited"
+                alt="Apscope Limited"
                 sx={{
                   height: 50,
                   mr: 3,
@@ -111,7 +111,7 @@ const Footer = () => {
                   fontSize: "1.5rem",
                 }}
               >
-                APScope Limited
+                Apscope Limited
               </Typography>
             </Box>
 
@@ -289,7 +289,7 @@ const Footer = () => {
             opacity: 0.8,
           }}
         >
-          &copy; {currentYear} APScope Limited. All rights reserved.
+          &copy; {currentYear} Apscope Limited. All rights reserved.
         </Typography>
       </Container>
     </Box>

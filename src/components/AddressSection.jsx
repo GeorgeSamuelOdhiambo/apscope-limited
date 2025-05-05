@@ -27,7 +27,7 @@ const AddressSection = () => {
       icon: <LocationIcon fontSize="large" />,
       title: "Physical Address",
       details: [
-        "APScope Limited",
+        "Apscope Limited",
         "P.O. Box 68254 - 00200, Nairobi, Kenya",
         "Karen Plains Arcade, Level 2, Karen Plains Road"
       ]
