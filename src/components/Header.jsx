@@ -117,7 +117,7 @@ const Header = () => {
         <Toolbar sx={{ justifyContent: "space-between" }}>
           {/* Logo/Branding */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <LogoImage src={logo} alt="APScope Limited" scrolled={scrolled} />
+            <LogoImage src={logo} alt="Apscope Limited" scrolled={scrolled} />
             <Typography
               variant="h6"
               sx={{
@@ -127,7 +127,7 @@ const Header = () => {
                 fontWeight: "bold",
               }}
             >
-              APScope{" "}
+              Apscope{" "}
               <Typography
                 component="span"
                 color={scrolled ? "primary.main" : "white"}

@@ -38,10 +38,10 @@ const serviceData = {
     title: "Solar Energy Solutions",
     icon: <SolarPower fontSize="large" />,
     description:
-      "Apscope Limited is a trusted dealer and installer of solar energy products and solutions across Kenya and Uganda. We provide comprehensive solar systems, components, and installation services tailored to diverse needs—from homes and farms to commercial and government institutions.",
+      "Apscope Limited is a trusted dealer and installer of solar energy products and solutions across Eastern Africa. We provide comprehensive solar systems, components, and installation services tailored to diverse needs—from homes and farms to commercial and government institutions.",
     bannerHeading: "Powering a Sustainable Future",
     bannerSubheading:
-      "Reliable, Clean, and Affordable Solar Energy for Homes, Businesses, and Institutions.",
+      "Reliable, Clean, and Affordable Solar Energy Solutions  for Homes, Businesses, and Institutions.",
     color: "#FF9800", // Orange
     image: solarEnergy,
     features: [
@@ -127,7 +127,7 @@ const serviceData = {
     title: "Health & Pharma Partnership Agency",
     icon: <MedicalServices fontSize="large" />,
     description:
-      "APScope bridges Indian & Chinese pharmaceutical manufacturers with East African markets through regulatory expertise, tender management, and local packaging partnerships. We provide end-to-end solutions for medical equipment, consumables, and institutional healthcare services.",
+      "Apscope bridges pharmaceutical manufacturers, and Medical equipment manufacturers with East African markets through regulatory expertise, tender management, and local packaging partnerships. We provide end-to-end solutions for medical equipment, pharmaceuticals, consumables, and institutional healthcare services.",
     bannerHeading: "Gateway to East African Healthcare Markets",
     bannerSubheading:
       "Pharma Registration | Government Tenders | Local Packaging Partnerships | Distribution Networks",
@@ -156,9 +156,9 @@ const serviceData = {
     ],
     cta: "Partner for seamless market entry in East Africa",
     wtc: "Discuss representation or partnership opportunities",
-    btn: "Contact Our Pharma Team",
+    btn: "Contact our Team",
     targetAudience: [
-      "Pharmaceutical manufacturers (India/China)",
+      "Pharmaceutical manufacturers",
       "Medical equipment suppliers",
       "Hospital & clinic chains",
       "Government health agencies",
@@ -175,7 +175,7 @@ const serviceData = {
     title: "Global HR & Talent Solutions",
     icon: <Groups fontSize="large" />,
     description:
-      "APScope specializes in international recruitment, training, and overseas placement for healthcare professionals (nurses, caregivers, technicians) and educators. We connect African talent with global opportunities while helping organizations build high-performing teams.",
+      "Apscope specializes in international recruitment, training, and overseas placement for healthcare professionals (nurses, caregivers, technicians) and educators. We connect African talent with global opportunities while helping organizations build high-performing teams.",
     bannerHeading: "Bridging Talent with Global Opportunities",
     bannerSubheading:
       "Recruitment | Training | Overseas Placement | Compliance Support",
@@ -189,7 +189,7 @@ const serviceData = {
       "Local talent sourcing for African organizations",
     ],
     services: [
-      "Healthcare workforce recruitment (EU/GCC markets)",
+      "Healthcare workforce recruitment (USA Canada, Australia & EU markets)",
       "Teacher & skilled labor placement abroad",
       "HR consulting for hospitals & schools",
       "Compliance & licensing support (e.g., NCLEX, Prometric)",
@@ -207,7 +207,7 @@ const serviceData = {
     btn: "Contact Our HR Team",
     targetAudience: [
       "Hospitals & Clinics (Africa & Abroad)",
-      "Nursing Homes (EU/GCC)",
+      "Nursing Homes (USA Canada, Australia & EU markets )",
       "Schools & Training Institutes",
       "Healthcare Recruitment Agencies",
       "Government Workforce Programs",

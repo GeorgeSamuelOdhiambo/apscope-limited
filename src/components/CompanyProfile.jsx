@@ -121,7 +121,7 @@ const VisionObjectives = () => {
       icon: <GlobalIcon fontSize="large" />,
       title: "Global Recognition",
       content:
-        "Establish as a premier company renowned worldwide for innovation and reliability.",
+        "To be Eastern Africa’s most trusted provider of quality solutions, known for excellence, reliability, and customer satisfaction.",
       color: theme.palette.primary.main,
     },
     {

@@ -291,7 +291,7 @@ import back3 from "../assets/images/trusted-partner.jpg";
 
 const heroData = [
   {
-    title: "APScope Limited",
+    title: "Apscope Limited",
     subtitle: "A composite of infrastructure, healthcare, and professionals",
     description:
       "Health • Construction • Accounting Solutions • Human Capital • Project Consultancy",
