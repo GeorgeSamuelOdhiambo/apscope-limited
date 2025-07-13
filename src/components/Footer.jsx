@@ -48,7 +48,7 @@ const Footer = () => {
   const companyLinks = [
     { text: "About Us", url: "/#services" },
     { text: "Vision & Mission", url: "/#profile" },
-    { text: "Core Values", url: "/#values" }
+    { text: "Core Values", url: "/#values" },
   ];
 
   const contactInfo = [
@@ -287,9 +287,29 @@ const Footer = () => {
             textAlign: "center",
             color: "primary.contrastText",
             opacity: 0.8,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 1, // Adds spacing between elements
           }}
         >
           &copy; {currentYear} Apscope Limited. All rights reserved.
+          <span>•</span> {/* Separator */}
+          <span>
+            Developed by{" "}
+            <a
+              href="https://tecloud.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { textDecoration: "underline" },
+              }}
+            >
+              Tecloud.dev
+            </a>
+          </span>
         </Typography>
       </Container>
     </Box>
