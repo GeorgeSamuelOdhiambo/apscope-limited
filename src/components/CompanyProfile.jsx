@@ -27,9 +27,11 @@ import {
   Groups as CollaborationIcon,
   Business as BusinessIcon,
   Checklist as ChecklistIcon,
+  PlayCircleFilled as PlayCircleFilledIcon,
+  Assignment as AssignmentIcon,
 } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
-import StarIcon from "@mui/icons-material/Star";
+// import { useNavigate } from "react-router-dom";
+// import StarIcon from "@mui/icons-material/Star";
 // Custom animations
 const pulse = keyframes`
   0% { transform: scale(1); }
@@ -37,13 +39,6 @@ const pulse = keyframes`
   100% { transform: scale(1); }
 `;
 
-const glow = keyframes`
-  0% { filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.1)); }
-  50% { filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3)); }
-  100% { filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.1)); }
-`;
-
-// Styled components
 const AnimatedDivider = styled(Divider)(({ theme }) => ({
   height: 4,
   width: 80,
@@ -53,43 +48,6 @@ const AnimatedDivider = styled(Divider)(({ theme }) => ({
   "&:hover": {
     width: 120,
     background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-  },
-}));
-
-const IconCard = styled(Paper)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  height: "100%",
-  padding: theme.spacing(3),
-  borderRadius: theme.shape.borderRadius * 2,
-  transition: "all 0.3s ease",
-  position: "relative",
-  overflow: "hidden",
-  "&:hover": {
-    transform: "translateY(-5px)",
-    boxShadow: theme.shadows[6],
-    "& .icon-wrapper": {
-      transform: "scale(1.1)",
-      "& svg": {
-        animation: `${glow} 2s infinite`,
-      },
-    },
-    "&:after": {
-      opacity: 0.1,
-    },
-  },
-  "&:after": {
-    content: '""',
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    background:
-      "radial-gradient(circle at center, currentColor 0%, transparent 70%)",
-    opacity: 0,
-    transition: "opacity 0.3s ease",
-    pointerEvents: "none",
   },
 }));
 
@@ -103,66 +61,18 @@ const companyInfo = {
   sectors: ["Health", "Construction", "Human Capital", "Project Consultancy"],
 };
 
-const partnershipBenefits = [
-  "Local expertise across East Africa",
-  "Established government & private sector links",
-  "End-to-end services – from regulatory to delivery",
-  "15+ years of multisectoral experience",
-  "Transparent, value-driven partnerships",
-];
+// const partnershipBenefits = [
+//   "Local expertise across East Africa",
+//   "Established government & private sector links",
+//   "End-to-end services – from regulatory to delivery",
+//   "15+ years of multisectoral experience",
+//   "Transparent, value-driven partnerships",
+// ];
 
 const VisionObjectives = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const navigate = useNavigate();
-
-  const visionPillars = [
-    {
-      icon: <GlobalIcon fontSize="large" />,
-      title: "Global Recognition",
-      content:
-        "To be Eastern Africa’s most trusted provider of quality solutions, known for excellence, reliability, and customer satisfaction.",
-      color: theme.palette.primary.main,
-    },
-    {
-      icon: <ExcellenceIcon fontSize="large" />,
-      title: "Excellence Standard",
-      content:
-        "Pursue excellence across all dimensions of our business operations.",
-      color: theme.palette.secondary.main,
-    },
-    {
-      icon: <GrowthIcon fontSize="large" />,
-      title: "Talent Investment",
-      content:
-        "Foster continuous learning to build an unparalleled team of experts.",
-      color: theme.palette.success.main,
-    },
-  ];
-
-  const objectives = [
-    {
-      icon: <PartnershipIcon fontSize="large" />,
-      title: "Enduring Partnerships",
-      content:
-        "Build long-term relationships based on trust and mutual success.",
-      color: theme.palette.warning.main,
-    },
-    {
-      icon: <InnovationIcon fontSize="large" />,
-      title: "Transformative Value",
-      content:
-        "Create measurable impact through innovative solutions and services.",
-      color: theme.palette.info.main,
-    },
-    {
-      icon: <InnovationIcon fontSize="large" />,
-      title: "Client-Centric Focus",
-      content:
-        "Maintain unwavering commitment to our clients' objectives and success.",
-      color: theme.palette.error.main,
-    },
-  ];
+  // const navigate = useNavigate();
 
   return (
     <Box
@@ -194,7 +104,7 @@ const VisionObjectives = () => {
                 ABOUT APSCOPE LIMITED
               </Typography>
               <Typography
-                variant={isMobile ? "h5" : "h4"}
+                variant={isMobile ? "h4" : "h3"}
                 component="h4"
                 sx={{
                   fontWeight: 700,
@@ -203,7 +113,7 @@ const VisionObjectives = () => {
                   fontFamily: "'Playfair Display', serif",
                 }}
               >
-                Innovating Solutions, Connecting Possibilities
+                Welcome to Apscope Limited
               </Typography>
               <AnimatedDivider />
             </Box>
@@ -294,188 +204,148 @@ const VisionObjectives = () => {
           </Fade>
         </Box>
 
-        {/* Vision Section */}
-        <Box sx={{ mb: 10 }}>
-          <Slide direction="left" in timeout={600}>
-            <Box sx={{ textAlign: "center", mb: 6 }}>
-              <Typography
-                variant="h4"
-                component="h3"
+        <Box
+          sx={{
+            py: 8,
+            px: { xs: 2, sm: 4, md: 6 },
+          }}
+        >
+          <Grid
+            container
+            spacing={{ xs: 4, md: 6 }}
+            alignItems="stretch"
+            justifyContent="center"
+          >
+            {/* Left Column - Vision & Mission */}
+            <Grid item xs={12} md={6}>
+              <Box
                 sx={{
-                  fontWeight: 700,
-                  color: "text.primary",
-                  display: "inline-flex",
+                  display: "flex",
+                  flexDirection: "column",
                   alignItems: "center",
-                  gap: 2,
-                  fontFamily: "'Playfair Display', serif",
+                  textAlign: "center",
+                  height: "100%",
+                  justifyContent: "center",
+                  px: { xs: 2, sm: 4 },
                 }}
               >
-                <BusinessIcon color="primary" sx={{ fontSize: 36 }} />
-                Our Vision
-              </Typography>
-            </Box>
-          </Slide>
-
-          <Grid container spacing={4} justifyContent="center">
-            {visionPillars.map((item, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <Grow
-                  in
-                  timeout={800 + index * 200}
-                  style={{ transitionDelay: `${index * 100}ms` }}
+                {/* Vision */}
+                <Box
+                  sx={{
+                    mb: 5,
+                    width: "100%",
+                    maxWidth: 500,
+                    px: { xs: 1, sm: 2 },
+                  }}
                 >
-                  <IconCard
-                    elevation={3}
-                    sx={{ borderTop: `4px solid ${item.color}` }}
+                  <BusinessIcon color="primary" sx={{ fontSize: 40, mb: 2 }} />
+                  <Typography
+                    variant="h5"
+                    component="h3"
+                    sx={{
+                      fontWeight: 600,
+                      mb: 2,
+                      color: "text.primary",
+                      fontFamily: "'Playfair Display', serif",
+                    }}
                   >
-                    <Box
-                      className="icon-wrapper"
-                      sx={{
-                        mb: 3,
-                        display: "flex",
-                        justifyContent: "center",
-                        transition: "transform 0.3s ease",
-                      }}
-                    >
-                      <Avatar
-                        sx={{
-                          width: 72,
-                          height: 72,
-                          bgcolor:
-                            theme.palette.mode === "dark"
-                              ? theme.palette.grey[800]
-                              : "rgba(255,255,255,0.9)",
-                          color: item.color,
-                          boxShadow: theme.shadows[2],
-                          "& svg": { fontSize: 36 },
-                        }}
-                      >
-                        {item.icon}
-                      </Avatar>
-                    </Box>
-                    <Typography
-                      variant="h5"
-                      component="h4"
-                      sx={{
-                        fontWeight: 600,
-                        mb: 2,
-                        color: item.color,
-                        textAlign: "center",
-                        fontFamily: "'Playfair Display', serif",
-                      }}
-                    >
-                      {item.title}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        lineHeight: 1.7,
-                        color: "text.secondary",
-                        textAlign: "center",
-                        fontFamily: "'Roboto', sans-serif",
-                      }}
-                    >
-                      {item.content}
-                    </Typography>
-                  </IconCard>
-                </Grow>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
+                    Our Vision
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      lineHeight: 1.8,
+                      fontSize: { xs: "1rem", sm: "1.1rem" },
+                      color: "text.secondary",
+                      fontStyle: "italic",
+                    }}
+                  >
+                    "To be a Premier Company among the Top 100 Companies in
+                    Africa."
+                  </Typography>
+                </Box>
 
-        {/* Objectives Section */}
-        <Box sx={{ mb: 10 }}>
-          <Slide direction="right" in timeout={600}>
-            <Box sx={{ textAlign: "center", mb: 6 }}>
-              <Typography
-                variant="h4"
-                component="h3"
+                {/* Mission */}
+                <Box
+                  sx={{
+                    width: "100%",
+                    maxWidth: 500,
+                    px: { xs: 1, sm: 2 },
+                  }}
+                >
+                  <AssignmentIcon
+                    color="primary"
+                    sx={{ fontSize: 40, mb: 2 }}
+                  />
+                  <Typography
+                    variant="h5"
+                    component="h3"
+                    sx={{
+                      fontWeight: 600,
+                      mb: 2,
+                      color: "text.primary",
+                      fontFamily: "'Playfair Display', serif",
+                    }}
+                  >
+                    Our Mission
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      lineHeight: 1.8,
+                      fontSize: { xs: "1rem", sm: "1.1rem" },
+                      color: "text.secondary",
+                    }}
+                  >
+                    "To effectively, efficiently and innovatively build and
+                    create value for our customers, directors, staff and the
+                    public."
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+
+            {/* Right Column - YouTube Video */}
+            <Grid item xs={12} md={6}>
+              <Box
                 sx={{
-                  fontWeight: 700,
-                  color: "text.primary",
-                  display: "inline-flex",
+                  width: "100%",
+                  height: "100%",
+                  minHeight: { xs: 300, sm: 400 },
+                  display: "flex",
                   alignItems: "center",
-                  gap: 2,
-                  fontFamily: "'Playfair Display', serif",
+                  justifyContent: "center",
+                  borderRadius: 2,
+                  overflow: "hidden",
+                  backgroundColor: "transparent",
+                  position: "relative",
+                  "& iframe": {
+                    backgroundColor: "transparent",
+                  },
                 }}
               >
-                <ChecklistIcon color="secondary" sx={{ fontSize: 36 }} />
-                Our Objectives
-              </Typography>
-            </Box>
-          </Slide>
-
-          <Grid container spacing={4} justifyContent="center">
-            {objectives.map((item, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <Zoom
-                  in
-                  timeout={800 + index * 200}
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  <IconCard
-                    elevation={3}
-                    sx={{ borderBottom: `4px solid ${item.color}` }}
-                  >
-                    <Box
-                      className="icon-wrapper"
-                      sx={{
-                        mb: 3,
-                        display: "flex",
-                        justifyContent: "center",
-                        transition: "transform 0.3s ease",
-                      }}
-                    >
-                      <Avatar
-                        sx={{
-                          width: 72,
-                          height: 72,
-                          bgcolor:
-                            theme.palette.mode === "dark"
-                              ? theme.palette.grey[800]
-                              : "rgba(255,255,255,0.9)",
-                          color: item.color,
-                          boxShadow: theme.shadows[2],
-                          "& svg": { fontSize: 36 },
-                        }}
-                      >
-                        {item.icon}
-                      </Avatar>
-                    </Box>
-                    <Typography
-                      variant="h5"
-                      component="h4"
-                      sx={{
-                        fontWeight: 600,
-                        mb: 2,
-                        color: item.color,
-                        textAlign: "center",
-                        fontFamily: "'Playfair Display', serif",
-                      }}
-                    >
-                      {item.title}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        lineHeight: 1.7,
-                        color: "text.secondary",
-                        textAlign: "center",
-                        fontFamily: "'Roboto', sans-serif",
-                      }}
-                    >
-                      {item.content}
-                    </Typography>
-                  </IconCard>
-                </Zoom>
-              </Grid>
-            ))}
+                <iframe
+                  width="100%"
+                  height="100%"
+                  minHeight="400"
+                  src="https://www.youtube.com/embed/tUP5S4YdEJo"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  style={{
+                    border: "none",
+                    borderRadius: "8px",
+                    aspectRatio: "16/9",
+                  }}
+                ></iframe>
+              </Box>
+            </Grid>
           </Grid>
         </Box>
 
         {/* Partnership Section */}
-        <Box sx={{ mt: 10 }}>
+        {/* <Box sx={{ mt: 10 }}>
           <Paper
             elevation={3}
             sx={{
@@ -593,7 +463,7 @@ const VisionObjectives = () => {
               </Button>
             </Box>
           </Paper>
-        </Box>
+        </Box> */}
       </Container>
     </Box>
   );

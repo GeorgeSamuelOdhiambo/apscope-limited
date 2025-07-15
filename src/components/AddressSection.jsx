@@ -16,7 +16,7 @@ import {
   Email as EmailIcon,
   Language as LanguageIcon
 } from '@mui/icons-material';
-import officeImage from '../assets/images/office.jpg';
+import officeImage from '../assets/images/aspcope-limited.jpg';
 
 const AddressSection = () => {
   const theme = useTheme();

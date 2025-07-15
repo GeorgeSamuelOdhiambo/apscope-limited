@@ -17,6 +17,7 @@ import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import "./App.css";
 import { scroller } from "react-scroll";
+import Pharmaceutical from "./components/PhamaSetical";
 
 function Home() {
   const location = useLocation();
@@ -41,8 +42,9 @@ function Home() {
     >
       <HeroSection />
       <CompanyProfile />
-      <Services />
       <Values />
+      <Services />
+      <Pharmaceutical />
       {/* <Directors /> */}
       {/* <AddressSection /> */}
       <ContactForm />
