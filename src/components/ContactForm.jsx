@@ -165,7 +165,7 @@ const ContactForm = () => {
           height: "100%",
           backgroundColor: "#f9f9f9",
           backgroundImage:
-            "linear-gradient(to top, #ffffff,rgb(192, 225, 238))",
+            "linear-gradient(to top,rgb(192, 225, 238), #ffffff)",
         },
       }}
     >
@@ -179,9 +179,11 @@ const ContactForm = () => {
               color: "secondary.main",
               fontWeight: 600,
               letterSpacing: 2,
-              display: "inline-block",
+              display: "block",
               mb: 2,
               animation: `${pulse} 2s infinite`,
+              fontSize: "0.9rem",
+              textTransform: "uppercase",
             }}
           >
             CONTACT US
