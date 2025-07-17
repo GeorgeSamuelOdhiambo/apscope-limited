@@ -1,6 +1,6 @@
 // src/components/Footer.js
 import React from "react";
-import logo from "../assets/images/logo.png"; // Update with your logo path
+import logo from "../assets/images/logo.jpg"; // Update with your logo path
 
 const Footer = () => {
   return (
@@ -89,9 +89,21 @@ const Footer = () => {
             reserved.
           </p>
           <div className="footer-legal">
-            <a>Privacy Policy</a>
-            <a>Terms of Service</a>
-            <a>Cookie Policy</a>
+            <a>
+            Developed by{" "}
+            <a
+              href="https://tecloud.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { textDecoration: "underline" },
+              }}
+            >
+              Tecloud.dev
+            </a>
+          </a>
           </div>
         </div>
       </div>
