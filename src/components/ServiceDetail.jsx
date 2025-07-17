@@ -25,102 +25,101 @@ import {
   Star,
   EmojiEvents,
   Verified,
+  Devices,
+  Engineering,
 } from "@mui/icons-material";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import solarEnergy from "../assets/images/solar-energy-large.jpg";
+import itSolutionsImage from "../assets/images/technology_solutions.png";
 import hrTalent from "../assets/images/hr-talent.jpg";
-import accountingSoftware from "../assets/images/accounting-software.jpg";
+import projectDevelopmentImage from "../assets/images/ProjectDevelopment.png";
 import healthPharma from "../assets/images/health-pharmacy.jpg";
-
+ 
 const serviceData = {
-  "solar-energy": {
-    title: "Solar Energy Solutions",
-    icon: <SolarPower fontSize="large" />,
+  "it-solutions": {
+    title: "I.T. Solutions & Tech Trading",
+    icon: <Devices fontSize="large" />,
     description:
-      "Apscope Limited is a trusted dealer and installer of solar energy products and solutions across Eastern Africa. We provide comprehensive solar systems, components, and installation services tailored to diverse needs—from homes and farms to commercial and government institutions.",
-    bannerHeading: "Powering a Sustainable Future",
+      "Apscope delivers tailored I.T. hardware and software solutions, including tech product sourcing and commodity trading. We serve public and private institutions with reliable technology infrastructure to power their operations.",
+    bannerHeading: "Tech-Driven Solutions for Growth",
     bannerSubheading:
-      "Reliable, Clean, and Affordable Solar Energy Solutions  for Homes, Businesses, and Institutions.",
-    color: "#FF9800", // Orange
-    image: solarEnergy,
+      "From hardware supply to software and tech-related commodity trading—we connect you to the digital tools you need.",
+    color: "#607D8B", // Blue-grey
+    image: itSolutionsImage, // replace with actual image import
     features: [
-      "Solar Panels (Monocrystalline & Polycrystalline)",
-      "Inverters & Charge Controllers",
-      "Deep Cycle Batteries",
-      "Solar Water Heaters & Pumps",
-      "Solar Streetlights & Security Lighting",
-      "Solar Backup & Hybrid Systems",
+      "Supply of I.T. hardware (PCs, servers, networking)",
+      "Software deployment (ERP, accounting, CRM, etc.)",
+      "Peripheral and accessory sourcing (printers, UPS, routers)",
+      "Tech-related commodity trading (devices, gadgets, etc.)",
+      "OEM & branded product partnerships",
     ],
     services: [
-      "Site Assessment & Solar Feasibility Studies",
-      "Customized Solar Design & Sizing",
-      "Professional Installation & Maintenance",
-      "Energy Audit & Consumption Analysis",
-      "Solar Financing Options & Leasing Models",
+      "Custom I.T. procurement for organizations",
+      "Installation & systems integration",
+      "After-sales support & maintenance",
+      "Tech vendor partnerships & representation",
+      "Consulting for digital transformation",
     ],
     benefits: [
-      "Affordable, high-quality solar products",
-      "Skilled and certified installation team",
-      "End-to-end project support",
-      "Ongoing maintenance & customer service",
-      "Partnerships with top global solar brands",
+      "Wide network of tech suppliers",
+      "Affordable and scalable solutions",
+      "Support for large-scale tenders",
+      "Tech advisory & needs assessment",
+      "Flexible trading models (bulk, B2B, B2C)",
     ],
-    cta: "Join the solar revolution. Reduce your power bills and carbon footprint.",
-    wtc: "Talk to our Solar Experts today",
-    btn: "Contact Us",
+    cta: "Streamline your tech procurement and boost performance",
+    wtc: "Let’s power your digital transformation",
+    btn: "Request a Quote",
     targetAudience: [
-      "Homeowners",
-      "Businesses",
-      "Farms & Agricultural Operations",
-      "Government Institutions",
-      "Schools & Universities",
-      "Healthcare Facilities",
+      "Government Ministries & Agencies",
+      "Educational Institutions",
+      "SMEs & Corporates",
+      "ICT Tenders & Contractors",
+      "Tech Importers/Distributors",
     ],
   },
-  "accounting-software": {
-    title: "Smart Accounting Solutions",
-    icon: <Calculate fontSize="large" />,
+
+  "project-development": {
+    title: "Infrastructure & Project Development",
+    icon: <Engineering fontSize="large" />,
     description:
-      "Apscope is a distributor of simplified accounting and bookkeeping software, developed for African markets. Our solutions cater to micro-enterprises, SMEs, cooperatives, and individuals who want to manage their finances better—without needing to be accountants.",
-    bannerHeading: "Simplify Your Finances, Grow Your Business",
+      "We identify infrastructure needs, develop project documentation, and support investor sourcing and execution. Our integrated approach accelerates project delivery and stakeholder alignment in key sectors including healthcare, education, and technology.",
+    bannerHeading: "From Idea to Execution",
     bannerSubheading:
-      "Affordable, user-friendly bookkeeping tools for SMEs, Startups, and Hustler Fund Beneficiaries.",
-    color: "#4CAF50", // Green
-    image: accountingSoftware,
+      "Concept-to-completion project development and execution support across Eastern Africa.",
+    color: "#795548", // Brown
+    image: projectDevelopmentImage, // replace with actual image import
     features: [
-      "Simple income & expense tracking",
-      "Customer & supplier records",
-      "Inventory and stock management",
-      "Invoice and quotation generation",
-      "Bank reconciliation",
-      "Tax calculation support (VAT, PAYE, etc.)",
-      "Exportable reports (PDF, Excel, CSV)",
+      "Infrastructure needs assessment",
+      "Feasibility studies & stakeholder mapping",
+      "Business case & concept documentation",
+      "Investor sourcing & deal structuring",
+      "Project execution & oversight",
     ],
     services: [
-      "Software implementation",
-      "User training and onboarding",
-      "Custom package development",
-      "Regular software updates",
-      "Dedicated support team",
+      "Development of funding proposals and project documents",
+      "Investor pitching and partnership facilitation",
+      "Government and donor engagement support",
+      "Coordination of multi-stakeholder projects",
+      "Post-implementation monitoring & evaluation",
     ],
     benefits: [
-      "Very low monthly cost",
-      "Accessible on desktop and mobile",
-      "No accounting knowledge required",
-      "Custom packages for institutions",
-      "Training and setup support available",
+      "Strong investor and institutional networks",
+      "Proven experience across public-private projects",
+      "End-to-end execution support",
+      "Compliance and risk management focus",
+      "Tailored support for each development phase",
     ],
-    cta: "No business is too small to be professionally managed.",
-    wtc: "Request a Free Demo From our Accounting Experts today",
-    btn: "Get Started",
+    cta: "Turn your project vision into reality",
+    wtc: "Let’s discuss your infrastructure or investment need",
+    btn: "Book a Consultation",
     targetAudience: [
-      "Hustler Fund beneficiaries",
-      "Small and Medium Enterprises (SMEs)",
-      "Shops & Retailers",
-      "NGOs & SACCOs",
-      "Freelancers and professionals",
-      "Farming cooperatives",
+      "County & National Governments",
+      "Hospitals & Health Systems",
+      "Development Partners & NGOs",
+      "Tech Parks & Innovation Hubs",
+      "Education Sector Institutions",
+      "Private Sector Investors",
     ],
   },
   "health-pharma": {
