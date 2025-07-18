@@ -91,7 +91,8 @@ section {
 
 
 
-/* Navbar Styles */
+
+
 .navbar {
   background-color: var(--white);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
@@ -100,7 +101,7 @@ section {
   top: 0;
   left: 0;
   z-index: 1000;
-  padding: 15px 0;
+  padding: 10px 0;
 }
 
 .navbar .container {
@@ -110,10 +111,22 @@ section {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  height: 70px; /* Fixed navbar height */
 }
 
-.logo img {
-  width: 200px;
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo-img {
+  height: 100%;
+  width: auto;
+  max-height: 60px; /* Slightly less than navbar height for padding */
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast; /* Sharper rendering */
+  image-rendering: crisp-edges; /* Sharper rendering for modern browsers */
   transition: transform 0.3s ease;
 }
 
@@ -191,12 +204,20 @@ section {
 
 /* Responsive Styles */
 @media (max-width: 992px) {
+  .navbar {
+    padding: 8px 0;
+  }
+
+  .navbar .container {
+    height: 60px;
+  }
+
   .nav-links {
     position: fixed;
-    top: 70px;
+    top: 60px;
     left: -100%;
     width: 100%;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 60px);
     background-color: var(--white);
     flex-direction: column;
     align-items: center;
@@ -232,23 +253,27 @@ section {
     display: block;
   }
 
-  .logo img {
-    height: 35px;
+  .logo-img {
+    max-height: 50px;
   }
 }
 
 @media (max-width: 480px) {
   .navbar {
-    padding: 12px 0;
+    padding: 6px 0;
+  }
+
+  .navbar .container {
+    height: 50px;
   }
 
   .nav-links {
-    top: 64px;
-    height: calc(100vh - 64px);
+    top: 50px;
+    height: calc(100vh - 50px);
   }
 
-  .logo img {
-    height: 30px;
+  .logo-img {
+    max-height: 40px;
   }
 }
 

@@ -26,7 +26,7 @@ const Contact = () => {
               </p>
               <p>
                 <i className="fas fa-envelope"></i>
-                <span>info@apscope.co.ke</span>
+                <span>info@apscopelimited.com</span>
               </p>
               <p>
                 <i className="fas fa-globe-africa"></i>
