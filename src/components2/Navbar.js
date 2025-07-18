@@ -40,7 +40,7 @@
 // src/components/Navbar.js
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo2 .png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -113,7 +113,7 @@ section {
 }
 
 .logo img {
-  height: 40px;
+  height: 30px;
   transition: transform 0.3s ease;
 }
 
@@ -265,130 +265,280 @@ section {
 
 
 
-
-/* Hero Section */
+/* Hero Section - Premium Version */
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-              url('../assets/images/aspcope-limited.jpg') no-repeat center center/cover;
+  position: relative;
   height: 100vh;
+  /* min-height: 800px; */
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+}
+
+.hero .container {
+  position: relative;
+  height: 100%;
   display: flex;
   align-items: center;
-  color: var(--white);
-  text-align: center;
-  padding-top: 80px;
+  justify-content: center;
+  z-index: 2;
+}
+
+.hero-content {
+  max-width: 1200px;
+  padding: 0 30px;
 }
 
 .hero-content h1 {
-  font-size: 3.5rem;
-  margin-bottom: 20px;
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.5px;
 }
 
 .hero-content p {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
 }
 
 .hero-buttons {
   display: flex;
   gap: 20px;
-  margin-top: 40px;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-.btn {
+.hero .btn {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 15px 30px;
+  padding: 18px 36px;
   border-radius: 50px;
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   cursor: pointer;
-  text-decoration: none;
-  overflow: hidden;
-  font-size: 0.9rem;
   border: none;
   outline: none;
+  overflow: hidden;
 }
 
-.btn-primary {
-  background-color: var(--primary);
-  color: var(--white);
-  box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+.hero .btn-primary {
+  background: linear-gradient(135deg, #0066FF 0%, #0044CC 100%);
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
 }
 
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 86, 179, 0.4);
+.hero .btn-primary:hover {
+  box-shadow: 0 15px 40px rgba(0, 102, 255, 0.4);
+  transform: translateY(-2px);
 }
 
-.btn-primary:active {
-  transform: translateY(1px);
+.hero .btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.btn-primary svg {
-  width: 13px;
-  height: 10px;
-  margin-left: 10px;
+.hero .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
-.btn-primary svg path,
-.btn-primary svg polyline {
-  stroke: var(--white);
-  transition: all 0.3s ease;
+.hero .btn svg {
+  margin-left: 12px;
+  transition: transform 0.3s ease;
 }
 
-.btn-primary:hover svg {
-  transform: translateX(3px);
+.hero .btn:hover svg {
+  transform: translateX(5px);
 }
 
-.btn-secondary {
-  background-color: transparent;
-  color: var(--white);
-  border: 2px solid var(--white);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+/* Slide Indicators */
+.slide-indicators {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  z-index: 10;
 }
 
-.btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-}
-
-.btn-secondary:active {
-  transform: translateY(1px);
-}
-
-.btn-secondary svg {
-  width: 13px;
-  height: 10px;
-  margin-left: 10px;
-}
-
-.btn-secondary svg path,
-.btn-secondary svg polyline {
-  stroke: var(--white);
-  transition: all 0.3s ease;
-}
-
-.btn-secondary:hover svg {
-  transform: translateX(3px);
-}
-
-/* Button animation */
-.btn span {
+.indicator {
+  width: 60px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 0;
+  overflow: hidden;
   position: relative;
-  transition: all 0.3s ease;
 }
 
-.btn:hover span {
-  transform: translateX(-3px);
+.indicator.active {
+  background: rgba(255, 255, 255, 0.6);
 }
 
+.indicator.active .progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: white;
+  animation: progress 5s linear forwards;
+  transform-origin: left center;
+}
+
+@keyframes progress {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  opacity: 0.8;
+  animation: bounce 2s infinite;
+}
+
+.mouse {
+  width: 24px;
+  height: 40px;
+  border: 2px solid white;
+  border-radius: 12px;
+  position: relative;
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background: white;
+  border-radius: 2px;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: wheel 2s infinite;
+}
+
+.arrow-down {
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(45deg);
+  margin: 8px auto 0;
+}
+
+@keyframes wheel {
+  0% { top: 6px; opacity: 1; }
+  100% { top: 18px; opacity: 0; }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+  40% { transform: translateY(-20px) translateX(-50%); }
+  60% { transform: translateY(-10px) translateX(-50%); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+  
+  .hero .btn {
+    padding: 15px 30px;
+    font-size: 0.9rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  
+  .slide-indicators {
+    bottom: 40px;
+  }
+}
+
+/* Framer Motion Animation Fixes */
+.motion-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ensures the hero section doesn't affect other components */
+section.hero {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 
 
@@ -1519,7 +1669,8 @@ address {
 }
 
 .footer-about img {
-  height: 60px;
+  /* height: 120px; */
+  width: 120px;
   margin-bottom: 25px;
   transition: transform 0.3s ease;
 }

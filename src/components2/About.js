@@ -9,10 +9,7 @@ const About = () => {
         <div className="section-header">
           <h1>Welcome to Apscope Limited</h1>
           <p className="intro-text">
-            Since 2008, we have delivered innovative and reliable solutions in Health, 
-            Building & Construction, I.T., Human Resource Management, and Project Development. 
-            Based in Nairobi, Kenya, and 100% Kenyan-owned, we are committed to creating 
-            sustainable value through partnerships across East Africa and beyond.
+            Since 2008, Apscope Limited has been a proudly Kenyan-owned company delivering bold, reliable, and transformative solutions across multiple sectors. From supplying cutting-edge medical equipment and software, to driving infrastructure projects, creating intelligent IT systems, sourcing and exporting skilled human capital, and linking investors to high-potential ventures—we are redefining what it means to build sustainable progress in Eastern Africa.
           </p>
         </div>
 
@@ -22,27 +19,29 @@ const About = () => {
               <div className="vision">
                 <h3>Our Vision</h3>
                 <p>
-                  To be a Premier Company among the Top 100 Companies in Africa.
+                  To be the inspirer of a better future in Eastern Africa by
+                  delivering smart, reliable, and people-centered solutions in
+                  healthcare, construction, technology, talent, and investment.
                 </p>
               </div>
-              
+
               <div className="mission">
                 <h3>Our Mission</h3>
                 <p>
-                  To effectively, efficiently and innovatively build and create value 
-                  for our customers, directors, staff and the public.
+                  To connect opportunities with solutions that improve lives and
+                  drive progress across Eastern Africa and beyond.
                 </p>
               </div>
             </div>
           </div>
 
           <div className="about-media">
-            <img 
-              src={image} 
-              alt="Apscope Limited team at work" 
+            <img
+              src={image}
+              alt="Apscope Limited team at work"
               className="about-image"
             />
-            <button 
+            <button
               className="play-button"
               aria-label="Play company introduction video"
             >
