@@ -1,6 +1,6 @@
 // src/components/Footer.js
 import React from "react";
-import logo from "../assets/images/logo.jpg"; // Update with your logo path
+import logo from "../assets/images/logo.png"; // Update with your logo path
 
 const Footer = () => {
   return (
@@ -78,7 +78,7 @@ const Footer = () => {
             </p>
             <p>
               <i className="fas fa-envelope"></i>
-              info@apscope.co.ke
+              info@apscopelimited.com
             </p>
           </div>
         </div>
