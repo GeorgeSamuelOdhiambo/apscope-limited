@@ -30,7 +30,7 @@ const Contact = () => {
               </p>
               <p>
                 <i className="fas fa-globe-africa"></i>
-                <span>www.apscope.co.ke</span>
+                <span>www.apscopelimited.com</span>
               </p>
             </div>
 
