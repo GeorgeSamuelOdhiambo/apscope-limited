@@ -113,7 +113,7 @@ section {
 }
 
 .logo img {
-  height: 30px;
+  width: 200px;
   transition: transform 0.3s ease;
 }
 
