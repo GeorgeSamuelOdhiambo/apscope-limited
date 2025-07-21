@@ -19,7 +19,7 @@ const About = () => {
               <div className="vision">
                 <h3>Our Vision</h3>
                 <p>
-                  Our Expertise with Transforming opportunities Into Progress.
+                  To be the inspirer of a better future in Eastern Africa by delivering smart, reliable, and people-centered solutions in healthcare, construction, technology, talent, and investment.
                 </p>
               </div>
 
