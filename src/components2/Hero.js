@@ -83,7 +83,7 @@ const Hero = () => {
     },
     {
       image: 'url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")',
-      title: 'Connecting Needs to Solutions',
+      title: 'Transforming Opportunities Into Progress',
       subtitle: 'Strategic partnerships for sustainable growth',
       overlay: 'linear-gradient(135deg, rgba(179, 0, 89, 0.85) 0%, rgba(85, 0, 40, 0.9) 100%)'
     },
