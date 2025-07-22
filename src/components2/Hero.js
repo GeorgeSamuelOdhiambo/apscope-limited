@@ -89,7 +89,7 @@ const Hero = () => {
     },
     {
       image: 'url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80")',
-      title: 'Your Vision, Our Expertise',
+      title: 'Connecting needs to solutions',
       subtitle: 'Comprehensive services tailored to your needs',
       overlay: 'linear-gradient(135deg, rgba(0, 179, 89, 0.85) 0%, rgba(0, 85, 40, 0.9) 100%)'
     }
